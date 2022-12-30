@@ -9,12 +9,15 @@ app.listen(port, () => {
 
 app.get('/querystring', (req, res) => {
   res.send('쿼리스트링')
+  console.log(req.query.id) 
+  // 쿼리에 있는 오브젝트 id값을 가져와라
+
 })
 
 app.post('/body-formdate', (req, res) => {
   res.send('폼데이터입니다')
 })
-
+///
 app.post('/body-multipart', (req, res) => {
   res.send('멀티파트입니다')
 })
