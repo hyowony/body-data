@@ -2,15 +2,20 @@ const express = require('express');
 
 const app = express();
 const port = 3000;
+const testjson = require('./test/test.json')
 
-app.listen(port, () => {
-    console.log(port, '포트로 서버가 열렸어요!');
-});
+//json으로 데이터 보내기 연습 
+app.get('/test', (req,res)=> {
+  testjson.t=(req,res)=> 
+    testjson.t=req.query.t
+    res.json(testjson)
+  
+})
 
 app.get('/querystring', (req, res) => {
-  res.send('쿼리스트링')
-  console.log(req.query.id) 
-  // 쿼리에 있는 오브젝트 id값을 가져와라
+  const id = req.query.id
+  const password = req.query.password
+  
 
 })
 
@@ -25,3 +30,7 @@ app.post('/body-multipart', (req, res) => {
 app.post('/body-json', (req, res) => {
   res.send('바디 제이슨입니다.')
 })
+
+app.listen(port, () => {
+  console.log(port, '포트로 서버가 열렸어요!');
+});
